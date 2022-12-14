@@ -35,8 +35,7 @@ showtext_auto()
 #| echo: false
 #| message: false
 #| warning: false
-cp <- readxl::read_xlsx("resources/Listado de escuelas y comunidades Huancarani Paucartambo Cusco.xlsx") %>% 
-  st_as_sf(coords = c("Longitud","Latitud"),crs = 4326)
+cp <- st_read("resources/cp_2.shp",quiet = T)
 box <- st_read("resources/box.gpkg",quiet = T)
 
 factorPal <- colorFactor(
@@ -83,7 +82,7 @@ leaflet() %>%
 #| echo: false
 #| message: false
 #| warning: false
-hex <- st_read("resources/hexgrid.gpkg",quiet = T)
+hex <- st_read("resources/hexgrid2.gpkg",quiet = T)
 factorPal <- colorFactor(
   c('#2e4eb0'), "Study area")
 
